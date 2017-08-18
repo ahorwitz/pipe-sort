@@ -6,7 +6,8 @@ amount of times relative to the number of comparators, you can pipe them.
 
 Ex: 
 
-`import pipeC from 'pipe-sort';
+```javascript
+import pipeC from 'pipe-sort';
 
 const person = (name, age, size) => ({name, age, size});
 
@@ -38,4 +39,5 @@ const criteria = pipeC(
 
 const newPeople = people.sort(criteria);
 
-console.log(newPeople);`
+console.log(newPeople);
+```
