@@ -1,6 +1,6 @@
 {
   "name": "pipe-sort",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Compose comparator functions (in order of importance) for Array.sort()",
   "main": "pipeSort.js",
   "scripts": {
