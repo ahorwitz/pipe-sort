@@ -1,8 +1,10 @@
 # pipe-sort
 Compose comparator functions to JavaScript native sort()
 
-Pretty simple, say you want to sort by arbitrary comparators, starting with the most important one. Instead of running sort x
-amount of times relative to the number of comparators, starting with the least important one, you can pipe them:
+Pretty straightforward, say you want to sort by arbitrary comparators, starting with the most important one. Instead of running sort x
+amount of times relative to the number of comparators, you can compose comparators with pipeC(). 
+
+If any comparator returns 0, the value of the next comparator function is called. So in this example, if the ages are equal, they are sorted by name, then if the names are equal they are sorted by size, etc.
 
 ```javascript
 
@@ -15,7 +17,7 @@ const pipeComparators = (...fns) => (a, b) => {
 Example usage:
 
 ```javascript
-import pipeC from 'pipe-sort';
+import { comparator, pipeC } from 'pipe-sort';
 
 const person = (name, age, size) => ({name, age, size});
 
@@ -30,9 +32,9 @@ const people = [
   person('aaba', 90, 1)
 ];
 
-const byName = (a, b) => a.name < b.name ? -1 : a.name > b.name ? 1 : 0;
-const byAge = (a, b) => a.age < b.age ? -1 : a.age > b.age ? 1 : 0;
-const bySize = (a, b) => a.size < b.size ? -1 : a.size > b.size ? 1 : 0;
+const byName = comparator((a, b) => a.name < b.name);
+const byAge = comparator((a, b) => a.age < b.age);
+const bySize = comparator((a, b) => a.size < b.size);
 
 const criteria = pipeC(
   byAge, 
