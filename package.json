@@ -1,0 +1,25 @@
+{
+  "name": "pipe-sort",
+  "version": "1.0.0",
+  "description": "Compose comparator functions (in order of importance) for Array.sort()",
+  "main": "pipeSort.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ahorwitz/pipe-sort.git"
+  },
+  "keywords": [
+    "Sort",
+    "sorting",
+    "comparator",
+    "compose"
+  ],
+  "author": "Adam H",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ahorwitz/pipe-sort/issues"
+  },
+  "homepage": "https://github.com/ahorwitz/pipe-sort#readme"
+}
