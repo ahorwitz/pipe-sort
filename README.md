@@ -1,10 +1,13 @@
 # pipe-sort
-Compose comparator functions to JavaScript native sort()
+Compose comparator functions (in descending order of importance) to JavaScript native sort()
 
-Pretty straightforward, say you want to sort by arbitrary comparators, starting with the most important one. Instead of running sort x
-amount of times relative to the number of comparators, you can compose comparators with pipeC(). 
+Say you want to sort by multiple arbitrary comparators, in descending order of importance. Instead of calling sort() multiple times for each comparator, you can compose comparators with pipeC(), making your code more efficient and easier to read.
 
-If any comparator returns 0, the value of the next comparator function is called. So in this example, if the ages are equal, they are sorted by name, then if the names are equal they are sorted by size, etc.
+Deliberately did not include a general purpose "compose" function for combining comparators without order of importance, it is more general, and Ramda, lodash, Underscore, etc. already have this functionality.
+
+Also includes a helper function ```comparator()```, this is just to write cleaner comparator functions to return boolean values instead of -1, 1, 0, not necessary for use with pipeC(), just a convenience.
+
+It's very simple, if any comparator fn returns 1 or -1, then that value is returned, if 0 is returned, then the next comparator function is called:
 
 ```javascript
 
